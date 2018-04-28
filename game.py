@@ -71,12 +71,13 @@ def setup():
     draw_border()
     draw_centre_line(20)
 
-    ball = draw_ball()
+    ball = make_ball()
     paddle_player = make_paddle(LINEWIDTH * 2)
     paddle_cpu = make_paddle(WIDTH - (LINEWIDTH * 3))
 
     GameObjects = {'player': paddle_player, 'cpu': paddle_cpu, 'ball': ball}
 
+    draw_rectangle(ball, BLUE)
     draw_rectangle(paddle_player)
     draw_rectangle(paddle_cpu)
 
@@ -85,6 +86,7 @@ def setup():
 GameObjects = setup()
 
 def redraw():
+    make_ball()
     draw_border()
     draw_centre_line(20)
     draw_rectangle(GameObjects['player'])
