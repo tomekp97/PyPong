@@ -94,14 +94,15 @@ while True:
             pygame.quit()
             sys.exit()
         
-        keys = pygame.key.get_pressed()
-        if keys[pygame.K_w]:
-            GameObjects['player'].y -= 5 
-            print(GameObjects['player'].y)
-            
-        if keys[pygame.K_s]:
-            GameObjects['player'].y += 5
-            print(GameObjects['player'].y)
+    keys = pygame.key.get_pressed()
+    if keys[pygame.K_w]:
+        print("W - pressed")
+        GameObjects['player'].y -= 2 
+        print(GameObjects['player'].y)
+        
+    if keys[pygame.K_s]:
+        GameObjects['player'].y += 2
+        print(GameObjects['player'].y)
 
 
     SURFACE.fill(BLACK)
