@@ -62,6 +62,11 @@ def draw_ball():
 def draw_rectangle(element_object, colour=WHITE):
     pygame.draw.rect(SURFACE, colour, element_object)
 
+def check_edge_collision(actor):
+    if actor.top =< LINEWIDTH:
+        actor.x = LINEWIDTH
+    elif actor.bottom >= HEIGHT - LINEWIDTH
+
 def setup():
     draw_border()
     draw_centre_line(20)
