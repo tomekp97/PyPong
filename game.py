@@ -62,11 +62,6 @@ def draw_ball():
 def draw_rectangle(element_object, colour=WHITE):
     pygame.draw.rect(SURFACE, colour, element_object)
 
-def check_edge_collision(actor):
-    if actor.top =< LINEWIDTH:
-        actor.x = LINEWIDTH
-    elif actor.bottom >= HEIGHT - LINEWIDTH
-
 def setup():
     draw_border()
     draw_centre_line(20)
@@ -101,7 +96,6 @@ while True:
         
     keys = pygame.key.get_pressed()
     if keys[pygame.K_w]:
-        print("W - pressed")
         GameObjects['player'].y -= 2 
         print(GameObjects['player'].y)
         
