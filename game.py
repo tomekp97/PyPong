@@ -89,6 +89,10 @@ def redraw():
     make_ball()
     draw_border()
     draw_centre_line(20)
+
+    check_edge_collision(GameObjects['player'])
+    
+    draw_rectangle(GameObjects['ball'], BLUE)
     draw_rectangle(GameObjects['player'])
     draw_rectangle(GameObjects['cpu'])
 
