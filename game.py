@@ -103,11 +103,11 @@ while True:
         
     keys = pygame.key.get_pressed()
     if keys[pygame.K_w]:
-        GameObjects['player'].y -= 2 
+        GameObjects['player'].y -= 3 
         print(GameObjects['player'].y)
         
     if keys[pygame.K_s]:
-        GameObjects['player'].y += 2
+        GameObjects['player'].y += 3
         print(GameObjects['player'].y)
 
 
