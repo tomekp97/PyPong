@@ -50,12 +50,8 @@ def make_paddle(x_pos):
     paddle = pygame.rect.Rect(x_pos, (Y_CENTRE - (paddle_height / 2)), LINEWIDTH,paddle_height)
     return paddle
 
-def draw_ball():
-    ball = pygame.draw.rect(
-        SURFACE,
-        BLUE,
-        (X_CENTRE, Y_CENTRE, LINEWIDTH, LINEWIDTH)
-    )
+de baf make_ball():
+   ll = pygame.rect.Rect(X_CENTRE, Y_CENTRE, LINEWIDTH, LINEWIDTH)
 
     return ball
 
