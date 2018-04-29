@@ -107,7 +107,7 @@ def redraw():
 
 
 while True:
-    CLOCK.tick(20)
+    CLOCK.tick(60)
 
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
