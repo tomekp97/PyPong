@@ -90,6 +90,9 @@ def setup():
     draw_centre_line(20)
 
     ball = make_ball()
+    ball_dir_X = 2
+    ball_dir_Y = 2
+
     paddle_player = make_paddle(LINEWIDTH * 2)
     paddle_cpu = make_paddle(WIDTH - (LINEWIDTH * 3))
 
