@@ -96,7 +96,15 @@ def setup():
     paddle_player = make_paddle(LINEWIDTH * 2)
     paddle_cpu = make_paddle(WIDTH - (LINEWIDTH * 3))
 
-    GameObjects = {'player': paddle_player, 'cpu': paddle_cpu, 'ball': ball}
+    GameObjects = {
+        'player': paddle_player,
+        'cpu': paddle_cpu,
+        'ball': {
+            'object': ball,
+            'dirX': ball_dir_X,
+            'dirY': ball_dir_Y
+        }
+    }
 
     draw_rectangle(ball, BLUE)
     draw_rectangle(paddle_player)
