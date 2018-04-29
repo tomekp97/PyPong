@@ -64,16 +64,9 @@ def check_edge_collision(actor):
     elif actor.bottom >= (HEIGHT - LINEWIDTH):
         actor.y = (HEIGHT - (LINEWIDTH + HEIGHT / 8))
 
-def move_ball(ball):
-    speed = 5
-
-    if (ball.bottom > (HEIGHT - LINEWIDTH)):
-        ball.y += 5 * -5
-
-    # ball.y += speed
-
-    print("Ball Y: " + str(ball.y))
-
+def move_ball(ball, ball_dir_X, ball_dir_Y):
+    ball.x += ball_dir_X
+    ball.y += ball_dir_Y
     return ball
 
 def setup():
