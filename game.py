@@ -115,16 +115,23 @@ def setup():
 GameObjects = setup()
 
 def redraw():
-    ball = move_ball(GameObjects['ball'])
+
+    ball_object = GameObjects['ball']
+    # ball_dir_X = ball_object['dirX']
+    # ball_dir_Y = ball_object['dirY']
+
     draw_border()
     draw_centre_line(20)
 
-    check_edge_collision(GameObjects['player'])
-    
-    draw_rectangle(ball, BLUE)
+    draw_rectangle(ball_object['object'], BLUE)
     draw_rectangle(GameObjects['player'])
     draw_rectangle(GameObjects['cpu'])
 
+    ball = move_ball(ball_object['object'], ball_object['dirX'], ball_object['dirY'])
+    ball_object['dirX'], ball_object['dirY'] = check_ball_collision(ball, ball_object['dirX'], ball_object['dirY'])
+
+    check_edge_collision(GameObjects['player'])
+    
 
 while True:
     CLOCK.tick(60)
