@@ -51,9 +51,8 @@ def make_paddle(x_pos):
     paddle = pygame.rect.Rect(x_pos, (Y_CENTRE - (paddle_height / 2)), LINEWIDTH,paddle_height)
     return paddle
 
-de baf make_ball():
-   ll = pygame.rect.Rect(X_CENTRE, Y_CENTRE, LINEWIDTH, LINEWIDTH)
-
+def make_ball():
+    ball = pygame.rect.Rect(X_CENTRE, Y_CENTRE, LINEWIDTH, LINEWIDTH)
     return ball
 
 def draw_rectangle(element_object, colour=WHITE):
@@ -66,7 +65,16 @@ def check_edge_collision(actor):
         actor.y = (HEIGHT - (LINEWIDTH + HEIGHT / 8))
 
 def move_ball(ball):
+    speed = 5
 
+    if (ball.bottom > (HEIGHT - LINEWIDTH)):
+        ball.y += 5 * -5
+
+    # ball.y += speed
+
+    print("Ball Y: " + str(ball.y))
+
+    return ball
 
 def setup():
     draw_border()
@@ -87,19 +95,19 @@ def setup():
 GameObjects = setup()
 
 def redraw():
-    make_ball()
+    ball = move_ball(GameObjects['ball'])
     draw_border()
     draw_centre_line(20)
 
     check_edge_collision(GameObjects['player'])
     
-    draw_rectangle(GameObjects['ball'], BLUE)
+    draw_rectangle(ball, BLUE)
     draw_rectangle(GameObjects['player'])
     draw_rectangle(GameObjects['cpu'])
 
 
 while True:
-    CLOCK.tick(60)
+    CLOCK.tick(20)
 
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
