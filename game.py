@@ -132,8 +132,6 @@ GameObjects = setup()
 def redraw():
 
     ball_object = GameObjects['ball']
-    # ball_dir_X = ball_object['dirX']
-    # ball_dir_Y = ball_object['dirY']
 
     draw_border()
     draw_centre_line(20)
