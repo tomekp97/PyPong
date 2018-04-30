@@ -84,6 +84,19 @@ def check_ball_collision(ball, ball_dir_X, ball_dir_Y):
         print("    Y = " + str(ball_dir_Y))
 
     return ball_dir_X, ball_dir_Y
+    
+def check_ball_to_paddle_collision(ball, paddle_a, paddle_b, ball_dir_X):
+    if (paddle_a.right == ball.left or ball.left < paddle_a.right) and paddle_a.top < ball.top and paddle_a.bottom > ball.bottom:
+        ball_dir_X = ball_dir_X * -1
+        print("Player paddle collision detected")
+
+    elif (paddle_b.left == ball.right or ball.right > paddle_b.left) and paddle_b.top < ball.top and paddle_b.bottom > ball.bottom:
+        ball_dir_X = ball_dir_X * -1
+        print("CPU paddle collision detected")
+    else:
+        ball_dir_X = ball_dir_X * 1
+
+    return ball_dir_X
 
 def setup():
     draw_border()
