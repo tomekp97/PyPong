@@ -73,11 +73,13 @@ def check_ball_collision(ball, ball_dir_X, ball_dir_Y):
     print("X = " + str(ball_dir_X), end="")
     print("    Y = " + str(ball_dir_Y))
     if ball.left == (LINEWIDTH) or ball.right == (WIDTH - LINEWIDTH):
+    if(ball.left == (LINEWIDTH) or ball.right == (WIDTH - LINEWIDTH)) or (ball.left < (LINEWIDTH) or ball.right > (WIDTH - LINEWIDTH)):
         ball_dir_X = ball_dir_X * -1
         print("X Collision detected")
         print("X = " + str(ball_dir_X), end="")
         print("    Y = " + str(ball_dir_Y))
     if ball.top == (LINEWIDTH) or ball.bottom == (HEIGHT - LINEWIDTH):
+    if (ball.top == (LINEWIDTH) or ball.bottom == (HEIGHT - LINEWIDTH)) or (ball.top < (LINEWIDTH) or ball.bottom > (HEIGHT - LINEWIDTH)):
         ball_dir_Y = ball_dir_Y * -1
         print("Y Collision detected")
         print("X = " + str(ball_dir_X), end="")
