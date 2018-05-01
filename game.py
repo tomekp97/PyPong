@@ -162,10 +162,10 @@ while True:
         
     keys = pygame.key.get_pressed()
     if keys[pygame.K_w]:
-        GameObjects['player'].y -= 3
+        GameObjects['player'].y -= PADDLESPEED
         
     if keys[pygame.K_s]:
-        GameObjects['player'].y += 3
+        GameObjects['player'].y += PADDLESPEED
 
 
     SURFACE.fill(BLACK)
