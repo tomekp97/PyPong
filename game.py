@@ -148,6 +148,7 @@ def redraw():
     ball_object['dirX'], ball_object['dirY'] = check_ball_collision(ball, ball_object['dirX'], ball_object['dirY'])
     ball_object['dirX'] = check_ball_to_paddle_collision(ball, GameObjects['player'], GameObjects['cpu'], ball_object['dirX'])
 
+    GameObjects['cpu'].centery += move_AI(ball, GameObjects['cpu'])
     check_edge_collision(GameObjects['player'])
     
 
