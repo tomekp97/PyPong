@@ -93,6 +93,17 @@ def check_ball_to_paddle_collision(ball, paddle_a, paddle_b, ball_dir_X):
 
     return ball_dir_X
 
+def move_AI(ball, paddle_cpu):
+    paddle_cpu_Y = (PADDLESPEED + 1)
+    if ball.centery > paddle_cpu.centery:
+        return paddle_cpu_Y
+
+    elif ball.centery < paddle_cpu.centery:
+        return -paddle_cpu_Y
+
+    else:
+        return 0
+
 def setup():
     draw_border()
     draw_centre_line(20)
