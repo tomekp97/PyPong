@@ -20,6 +20,13 @@ WHITE = (255,255,255)
 BLACK = (0,0,0)
 BLUE = (0,191,255)
 
+# Font
+FONT = pygame.font.Font('fonts/Gugi-Regular.ttf', 16)
+
+def text(message, text_position):
+    text_surface = FONT.render(message, True, WHITE)
+    SURFACE.blit(text_surface, text_position)
+
 def draw_border():
     pygame.draw.rect(
         SURFACE,
