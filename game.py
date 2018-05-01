@@ -11,6 +11,7 @@ X_CENTRE = WIDTH / 2
 Y_CENTRE = HEIGHT / 2
 LINEWIDTH = 8
 LINEWIDTH_COMP = LINEWIDTH / 2
+PADDLESPEED = 3
 SURFACE = pygame.display.set_mode((WIDTH, HEIGHT))
 CLOCK = pygame.time.Clock()
 
