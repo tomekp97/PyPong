@@ -142,6 +142,7 @@ GameObjects = setup()
 
 def redraw():
 
+    text("Hallo Welt", (30,30))
     ball_object = GameObjects['ball']
 
     draw_border()
