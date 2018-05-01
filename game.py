@@ -34,7 +34,7 @@ def draw_border():
         (0, 0, WIDTH, HEIGHT),
         math.floor(LINEWIDTH + LINEWIDTH_COMP)
     )
-    
+
 def draw_centre_line(number_of_dashes):
     compensation = LINEWIDTH * 2
     total_available_height = HEIGHT - compensation
@@ -86,7 +86,7 @@ def check_ball_collision(ball, ball_dir_X, ball_dir_Y):
         print("Y Collision detected")
 
     return ball_dir_X, ball_dir_Y
-    
+
 def check_ball_to_paddle_collision(ball, paddle_a, paddle_b, ball_dir_X):
     if (paddle_a.right == ball.left or ball.left < paddle_a.right) and (paddle_a.top < ball.top and paddle_a.bottom > ball.bottom):
         ball_dir_X = ball_dir_X * -1
@@ -158,7 +158,7 @@ def redraw():
 
     GameObjects['cpu'].centery += move_AI(ball, GameObjects['cpu'])
     check_edge_collision(GameObjects['player'])
-    
+
 
 while True:
     CLOCK.tick(60)
@@ -167,11 +167,11 @@ while True:
         if event.type == pygame.QUIT:
             pygame.quit()
             sys.exit()
-        
+
     keys = pygame.key.get_pressed()
     if keys[pygame.K_w]:
         GameObjects['player'].y -= PADDLESPEED
-        
+
     if keys[pygame.K_s]:
         GameObjects['player'].y += PADDLESPEED
 
