@@ -88,11 +88,11 @@ def check_ball_collision(ball, ball_dir_X, ball_dir_Y):
     return ball_dir_X, ball_dir_Y
 
 def check_ball_to_paddle_collision(ball, paddle_a, paddle_b, ball_dir_X):
-    if (paddle_a.right == ball.left or ball.left < paddle_a.right) and (paddle_a.top < ball.top and paddle_a.bottom > ball.bottom):
+    if (paddle_a['object'].right == ball.left or ball.left < paddle_a['object'].right) and (paddle_a['object'].top < ball.top and paddle_a['object'].bottom > ball.bottom):
         ball_dir_X = ball_dir_X * -1
         print("Player paddle collision detected")
 
-    elif (paddle_b.left == ball.right or ball.right > paddle_b.left) and (paddle_b.top < ball.top and paddle_b.bottom > ball.bottom):
+    elif (paddle_b['object'].left == ball.right or ball.right > paddle_b['object'].left) and (paddle_b['object'].top < ball.top and paddle_b['object'].bottom > ball.bottom):
         ball_dir_X = ball_dir_X * -1
         print("CPU paddle collision detected")
     else:
@@ -157,13 +157,15 @@ def redraw():
     draw_rectangle(ball_object['object'], BLUE)
     draw_rectangle(GameObjects['player'])
     draw_rectangle(GameObjects['cpu'])
+    draw_rectangle(GameObjects['player']['object'])
+    draw_rectangle(GameObjects['cpu']['object'])
 
     ball = move_ball(ball_object['object'], ball_object['dirX'], ball_object['dirY'])
     ball_object['dirX'], ball_object['dirY'] = check_ball_collision(ball, ball_object['dirX'], ball_object['dirY'])
     ball_object['dirX'] = check_ball_to_paddle_collision(ball, GameObjects['player'], GameObjects['cpu'], ball_object['dirX'])
 
-    GameObjects['cpu'].centery += move_AI(ball, GameObjects['cpu'])
-    check_edge_collision(GameObjects['player'])
+    GameObjects['cpu']['object'].centery += move_AI(ball, GameObjects['cpu']['object'])
+    check_edge_collision(GameObjects['player']['object'])
 
 
 while True:
