@@ -173,6 +173,11 @@ def redraw():
 
     GameObjects['cpu']['object'].centery += move_AI(ball, GameObjects['cpu']['object'])
     check_edge_collision(GameObjects['player']['object'])
+    
+    text("You", (100,30))
+    text(str(GameObjects['player']['score']), (80,50))
+    text("CPU", (WIDTH - 100,30))
+    text(str(GameObjects['cpu']['score']), (WIDTH - 80,50))
 
 
 while True:
