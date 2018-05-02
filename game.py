@@ -95,6 +95,13 @@ def check_ball_to_paddle_collision(ball, paddle_a, paddle_b, ball_dir_X):
     elif (paddle_b['object'].left == ball.right or ball.right > paddle_b['object'].left) and (paddle_b['object'].top < ball.top and paddle_b['object'].bottom > ball.bottom):
         ball_dir_X = ball_dir_X * -1
         print("CPU paddle collision detected")
+    
+    elif (ball.right >= (WIDTH - LINEWIDTH)):
+        paddle_a['score'] += 1
+
+    elif (ball.left <= LINEWIDTH):
+        paddle_b['score'] += 1
+
     else:
         ball_dir_X = ball_dir_X * 1
 
