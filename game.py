@@ -155,15 +155,12 @@ GameObjects = setup()
 
 def redraw():
 
-    text("Hallo Welt", (30,30))
     ball_object = GameObjects['ball']
 
     draw_border()
     draw_centre_line(20)
 
     draw_rectangle(ball_object['object'], BLUE)
-    draw_rectangle(GameObjects['player'])
-    draw_rectangle(GameObjects['cpu'])
     draw_rectangle(GameObjects['player']['object'])
     draw_rectangle(GameObjects['cpu']['object'])
 
