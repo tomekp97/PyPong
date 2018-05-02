@@ -179,18 +179,30 @@ def redraw():
     text("CPU", (WIDTH - 100,30))
     text(str(GameObjects['cpu']['score']), (WIDTH - 80,50))
 
+def continue_game():
+    play_again = False
 
-while True:
-    CLOCK.tick(60)
+    while not play_again:
 
-    for event in pygame.event.get():
-        if event.type == pygame.QUIT:
+        SURFACE.fill(BLACK)
+        text("Press 'R' to play again or 'Q' to exit.",((WIDTH / 2) - 100, (HEIGHT / 2) - 100))
+        pygame.display.update()
+
+        for event in pygame.event.get():
+            if event.type == pygame.QUIT:
+                pygame.quit()
+                sys.exit()
+
+        keys = pygame.key.get_pressed()
+        if keys[pygame.K_r]:
+            play_again = True
+            setup()
+            redraw()
+
+        if keys[pygame.K_q]:
             pygame.quit()
             sys.exit()
 
-    keys = pygame.key.get_pressed()
-    if keys[pygame.K_w]:
-        GameObjects['player'].y -= PADDLESPEED
 
     if keys[pygame.K_s]:
         GameObjects['player'].y += PADDLESPEED
