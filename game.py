@@ -203,11 +203,37 @@ def continue_game():
             pygame.quit()
             sys.exit()
 
+def mainloop():
 
-    if keys[pygame.K_s]:
-        GameObjects['player'].y += PADDLESPEED
+    while True:
+        CLOCK.tick(60)
+
+        for event in pygame.event.get():
+            if event.type == pygame.QUIT:
+                pygame.quit()
+                sys.exit()
+
+        keys = pygame.key.get_pressed()
+        if keys[pygame.K_w]:
+            GameObjects['player']['object'].y -= PADDLESPEED
+
+        if keys[pygame.K_s]:
+            GameObjects['player']['object'].y += PADDLESPEED
 
 
-    SURFACE.fill(BLACK)
-    redraw()
-    pygame.display.update()
+        SURFACE.fill(BLACK)
+
+        if GameObjects['player']['score'] == 2:
+            text("You have won!", ((WIDTH / 2) - 100, (HEIGHT / 2) - 100))
+            continue_game()
+        
+        elif GameObjects['cpu']['score'] == 2:
+            text("CPU has won!", ((WIDTH / 2) - 100, (HEIGHT / 2) - 100))
+            continue_game()
+        else:
+            redraw()
+
+        pygame.display.update()
+
+if __name__ == '__main__':
+    mainloop()
