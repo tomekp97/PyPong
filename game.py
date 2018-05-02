@@ -123,8 +123,14 @@ def setup():
     paddle_cpu = make_paddle(WIDTH - (LINEWIDTH * 3))
 
     GameObjects = {
-        'player': paddle_player,
-        'cpu': paddle_cpu,
+        'player': {
+            'object': paddle_player,
+            'score': 0
+        },
+        'cpu': {
+            'object': paddle_cpu,
+            'score': 0
+        },
         'ball': {
             'object': ball,
             'dirX': ball_dir_X,
